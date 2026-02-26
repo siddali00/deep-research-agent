@@ -1,0 +1,39 @@
+{
+  "name": "Timothy Overturf",
+  "context": "CEO of Sisu Capital",
+  "difficulty": "hard",
+  "description": "Primary research target — less public figure requiring deep investigation to uncover connections and assess risk",
+  "expected_facts": [
+    {
+      "category": "professional",
+      "claim": "CEO of Sisu Capital",
+      "difficulty": "easy"
+    },
+    {
+      "category": "professional",
+      "claim": "Background in finance and investment management",
+      "difficulty": "medium"
+    },
+    {
+      "category": "financial",
+      "claim": "Sisu Capital is involved in investment or asset management",
+      "difficulty": "medium"
+    },
+    {
+      "category": "association",
+      "claim": "Professional connections to other financial industry figures",
+      "difficulty": "hard"
+    },
+    {
+      "category": "professional",
+      "claim": "Prior roles at financial institutions before founding/leading Sisu Capital",
+      "difficulty": "hard"
+    }
+  ],
+  "expected_risks": [
+    "Limited public information (opacity risk)",
+    "Financial sector regulatory exposure",
+    "Network connections requiring deeper investigation"
+  ],
+  "notes": "This persona has limited publicly available information. The agent's ability to uncover non-obvious connections and build a comprehensive profile from sparse data is the key evaluation criterion."
+}

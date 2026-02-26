@@ -1,0 +1,63 @@
+{
+  "name": "Michael Burry",
+  "context": "Founder of Scion Asset Management, known for The Big Short",
+  "difficulty": "medium",
+  "description": "Semi-public hedge fund manager with hidden connections and SEC filings history",
+  "expected_facts": [
+    {
+      "category": "biographical",
+      "claim": "American physician and investor",
+      "difficulty": "easy"
+    },
+    {
+      "category": "professional",
+      "claim": "Founder of Scion Asset Management (formerly Scion Capital)",
+      "difficulty": "easy"
+    },
+    {
+      "category": "financial",
+      "claim": "Predicted and profited from the 2007-2008 subprime mortgage crisis",
+      "difficulty": "easy"
+    },
+    {
+      "category": "biographical",
+      "claim": "Has Asperger's syndrome, which he has discussed publicly",
+      "difficulty": "medium"
+    },
+    {
+      "category": "professional",
+      "claim": "Trained as a physician at Vanderbilt University Medical Center",
+      "difficulty": "medium"
+    },
+    {
+      "category": "financial",
+      "claim": "SEC 13F filings reveal concentrated portfolio positions",
+      "difficulty": "medium"
+    },
+    {
+      "category": "financial",
+      "claim": "Known for investing in water scarcity and farmland",
+      "difficulty": "hard"
+    },
+    {
+      "category": "legal",
+      "claim": "Was investigated by the FBI in 2010 related to his subprime research",
+      "difficulty": "hard"
+    },
+    {
+      "category": "behavioral",
+      "claim": "Periodically deletes social media posts and goes silent",
+      "difficulty": "hard"
+    },
+    {
+      "category": "association",
+      "claim": "Portrayed by Christian Bale in The Big Short (2015)",
+      "difficulty": "easy"
+    }
+  ],
+  "expected_risks": [
+    "Concentrated portfolio positions creating market risk",
+    "History of contrarian bets that attract regulatory attention",
+    "Social media activity causing market movements"
+  ]
+}

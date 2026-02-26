@@ -1,0 +1,63 @@
+{
+  "name": "Elon Musk",
+  "context": "CEO of Tesla and SpaceX",
+  "difficulty": "easy",
+  "description": "Public figure with extensive online presence — serves as baseline for agent evaluation",
+  "expected_facts": [
+    {
+      "category": "biographical",
+      "claim": "Born in Pretoria, South Africa in 1971",
+      "difficulty": "easy"
+    },
+    {
+      "category": "professional",
+      "claim": "CEO of Tesla, Inc.",
+      "difficulty": "easy"
+    },
+    {
+      "category": "professional",
+      "claim": "CEO and founder of SpaceX",
+      "difficulty": "easy"
+    },
+    {
+      "category": "professional",
+      "claim": "Owner of X (formerly Twitter), acquired in 2022",
+      "difficulty": "easy"
+    },
+    {
+      "category": "professional",
+      "claim": "Co-founded PayPal (via X.com merger with Confinity)",
+      "difficulty": "medium"
+    },
+    {
+      "category": "financial",
+      "claim": "One of the wealthiest individuals in the world",
+      "difficulty": "easy"
+    },
+    {
+      "category": "professional",
+      "claim": "Founded Neuralink, a brain-computer interface company",
+      "difficulty": "medium"
+    },
+    {
+      "category": "professional",
+      "claim": "Founded The Boring Company",
+      "difficulty": "medium"
+    },
+    {
+      "category": "legal",
+      "claim": "SEC settlement in 2018 over Tesla funding secured tweet",
+      "difficulty": "medium"
+    },
+    {
+      "category": "association",
+      "claim": "Has been involved with OpenAI as a co-founder before departing",
+      "difficulty": "medium"
+    }
+  ],
+  "expected_risks": [
+    "Regulatory scrutiny (SEC, NHTSA)",
+    "Corporate governance concerns",
+    "Public controversy and reputational volatility"
+  ]
+}

@@ -59,7 +59,12 @@ def scorer_node(state: ResearchState) -> dict:
         return {"confidence_scores": {}}
 
     parsed = robust_json_loads(response.content, context="scorer._score_facts")
-    scores = parsed if isinstance(parsed, list) else []
+    if isinstance(parsed, list):
+        scores = parsed
+    elif isinstance(parsed, dict):
+        scores = next((v for v in parsed.values() if isinstance(v, list)), [])
+    else:
+        scores = []
     result = {}
     for score_entry in scores:
         if not isinstance(score_entry, dict):

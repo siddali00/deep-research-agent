@@ -20,16 +20,23 @@ from src.utils.prompts.validation import SUFFICIENCY_CHECK_PROMPT
 logger = logging.getLogger(__name__)
 
 
+def _apply_scores(facts: list[dict], scores: dict[str, float]) -> list[dict]:
+    """Return a copy of facts with confidence_scores applied."""
+    updated = []
+    for f in facts:
+        claim = f.get("claim", "")
+        if claim in scores:
+            updated.append({**f, "confidence": scores[claim]})
+        else:
+            updated.append(f)
+    return updated
+
+
 def validator_node(state: ResearchState) -> dict:
     """Apply scored confidence and decide whether to continue or report."""
     all_facts = state.get("extracted_facts", [])
     scores = state.get("confidence_scores", {})
     logger.info("Sufficiency check: %d facts, %d scores available", len(all_facts), len(scores))
-
-    for fact in all_facts:
-        claim = fact.get("claim", "")
-        if claim in scores:
-            fact["confidence"] = scores[claim]
 
     router = ModelRouter()
     settings = get_settings()
@@ -53,7 +60,9 @@ def validator_node(state: ResearchState) -> dict:
 
 
 def _check_sufficiency(router: ModelRouter, state: ResearchState, settings) -> bool:
-    facts = state.get("extracted_facts", [])
+    raw_facts = state.get("extracted_facts", [])
+    scores = state.get("confidence_scores", {})
+    facts = _apply_scores(raw_facts, scores)
     risks = state.get("risk_flags", [])
 
     categories = {}

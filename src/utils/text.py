@@ -9,33 +9,43 @@ import re
 logger = logging.getLogger(__name__)
 
 
-def _part_to_str(part) -> str:
-    """Extract text from a single content part.
+def _part_to_str(part) -> str | None:
+    """Extract text from a single content part, returning None for non-text blocks.
 
-    Gemini JSON-mode returns parts as dicts like
-    {'type': 'text', 'text': '<json>', 'extras': {...}}.
+    Handles:
+    - Plain strings
+    - Gemini / OpenAI content parts: {'type': 'text', 'text': '...'}
+    - Reasoning blocks from reasoning models: {'type': 'reasoning', ...} -> skipped
     """
     if isinstance(part, str):
         return part
-    if isinstance(part, dict) and "text" in part:
-        return part["text"]
-    return str(part)
+    if isinstance(part, dict):
+        if part.get("type") == "reasoning":
+            return None
+        if "text" in part:
+            return part["text"]
+    return None
 
 
 def ensure_str(content) -> str:
     """Convert LLM response content to a plain string.
 
-    Handles three shapes returned by different providers:
+    Handles shapes returned by different providers / reasoning models:
     - str  (most common)
     - list[str]
-    - list[dict] with 'text' keys (Gemini JSON-mode content parts)
+    - list[dict] with 'text' keys (Gemini / OpenAI content parts)
+    - list containing reasoning blocks (silently skipped)
     """
     if isinstance(content, str):
         return content
     if isinstance(content, list):
-        return "\n".join(_part_to_str(part) for part in content)
-    if isinstance(content, dict) and "text" in content:
-        return content["text"]
+        parts = [_part_to_str(p) for p in content]
+        return "\n".join(p for p in parts if p is not None)
+    if isinstance(content, dict):
+        if content.get("type") == "reasoning":
+            return ""
+        if "text" in content:
+            return content["text"]
     return str(content)
 
 
